@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+
+
+
+
+
+    <script>
+        let myHeaders = {
+//            "mode":  "cors",
+//            "content-type": "application/json",
+            "x-apikey": "5ff4f0d2823229477922c7b1"
+//            "cache-control": "no-cache"
+        }
+        document.addEventListener("DOMContentLoaded", loadJSON)
+
+        async function loadJSON() {
+            const JSONData = await fetch("https://klaustest-ed2c.restdb.io/rest/contact", { headers: myHeaders});
+            let JSONContent = await JSONData.json();
+            console.log("JSONContent", JSONContent);
+        }
+    </script>
+</body></html>
