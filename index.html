@@ -24,7 +24,7 @@
 
         async function loadJSON() {
             const JSONData = await fetch("https://klaustest-ed2c.restdb.io/rest/contact", { headers: myHeaders});
-            let JSONContent = await JSONData.json();
+            const JSONContent = await JSONData.json();
             console.log("JSONContent", JSONContent);
         }
     </script>
