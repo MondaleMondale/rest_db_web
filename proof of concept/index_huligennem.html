@@ -14,18 +14,21 @@
 
 
     <script>
-        let myHeaders = {
+        const myHeaders = {
 //            "mode":  "cors",
-//            "content-type": "application/json",
+            "content-type": "application/json",
             "x-apikey": "5ff4f0d2823229477922c7b1"
+                
+        
 //            "cache-control": "no-cache"
         }
         document.addEventListener("DOMContentLoaded", loadJSON)
 
         async function loadJSON() {
             const JSONData = await fetch("https://klaustest-ed2c.restdb.io/rest/contact", { headers: myHeaders});
+            
             const JSONContent = await JSONData.json();
             console.log("JSONContent", JSONContent);
         }
-    </script>
+    </script>    
 </body></html>
