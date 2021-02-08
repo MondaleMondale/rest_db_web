@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style>
-
-        body{
+        body {
             display: flex;
 
             justify-content: center;
@@ -28,9 +27,18 @@
             padding: 1em;
             border: 1px solid;
             border-radius: 1em;
-            cursor: pointer;
+
         }
 
+        .button_container {
+
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -41,6 +49,8 @@
         <h2 class="navn"></h2>
         <p class="køn"></p>
         <img src="" alt="" class="profil-billede">
+        <div class="button_container"><button>LUK</button></div>
+
     </article>
 
 
@@ -50,19 +60,17 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
         const id = urlParams.get("id");
+
+        const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
         let person;
         const myHeaders = {
-            "content-type": "application/json",
             "x-apikey": "600fe9211346a1524ff12e31"
         }
         console.log("ID", id);
-
         document.addEventListener("DOMContentLoaded", loadJSON);
 
         async function loadJSON() {
-
             const JSONData = await fetch(`https://persongalleri-5d3e.restdb.io/rest/persongalleri/${id}`, {
                 headers: myHeaders
             });
@@ -75,16 +83,12 @@
         function visPerson() {
             document.querySelector(".navn").textContent = person.fornavn + " " + person.efternavn;
             document.querySelector(".profil-billede").src = medieurl + person.billede;
-            document.querySelector(".person").addEventListener("click",tilbageTilPersonGalleri);
-
-
+            document.querySelector("button").addEventListener("click", tilbageTilPersonGalleri);
         }
-        function tilbageTilPersonGalleri(){
+
+        function tilbageTilPersonGalleri() {
             history.back();
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
